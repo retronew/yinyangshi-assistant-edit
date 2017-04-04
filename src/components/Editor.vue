@@ -22,6 +22,7 @@ import mystery from './types/mystery'
 import mapGroup from './types/map'
 import material from './types/material'
 import shikigami from './types/shikigami'
+import master from './types/master'
 
 export default {
     components: {
@@ -30,7 +31,8 @@ export default {
         mystery,
         mapGroup,
         material,
-        shikigami
+        shikigami,
+        master
     },
     data () {
         return {

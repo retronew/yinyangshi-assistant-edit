@@ -13,7 +13,7 @@
         <div class="columns">
             <div class="column col-3" v-for="(item, index) in list.content">
                 <div class="input-group">
-                    <span class="input-group-addon">{{ String(index + 1).padStart(2, '0') }}</span>
+                    <span class="input-group-addon">{{ leftPad(index + 1, 2, 0) }}</span>
                     <input type="text" class="form-input" v-model="list.content[index]" />
                     <button class="btn btn-danger input-group-btn" @click="deleteCV(index)">删除</button>
                 </div>
@@ -24,6 +24,7 @@
 
 <script>
 import Toast from '../tools/toast.js'
+import leftPad from 'left-pad'
 
 export default {
     stores: {
@@ -55,6 +56,9 @@ export default {
             if (confirm('是否确定删除？')) {
                 this.list.content.splice(index, 1)
             }
+        },
+        leftPad(str, len, ch) {
+            return leftPad(str, len, ch)
         }
     }
 }

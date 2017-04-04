@@ -18,6 +18,10 @@
                                     <input class="form-input" type="text" v-model="list.content[typeIndex].sets[index].name" />
                                 </div>
                                 <div class="form-group">
+                                    <label class="form-label">图片编号</label>
+                                    <input class="form-input" type="text" v-model.number="list.content[typeIndex].sets[index].image" />
+                                </div>
+                                <div class="form-group">
                                     <label class="form-label">声优</label>
                                     <select class="form-select" v-model="list.content[typeIndex].sets[index].cv">
                                         <option value="null">
@@ -50,19 +54,25 @@
                                     <div v-for="(skill, skillIndex) in list.content[typeIndex].sets[index].skills">
                                         <div class="divider"></div>
                                         <div class="columns">
-                                            <div class="column col-6">
+                                            <div class="column col-4">
                                                 <div class="form-group">
                                                     <label class="form-label">名称</label>
                                                     <input class="form-input" type="text" v-model="list.content[typeIndex].sets[index].skills[skillIndex].name">
                                                 </div>
                                             </div>
-                                            <div class="column col-6">
-                                                <div class="form-group remove-inline-wrap">
+                                            <div class="column col-4">
+                                                <div class="form-group">
                                                     <label class="form-label">消费鬼火</label>
+                                                    <input class="form-input" type="number" v-model.number="list.content[typeIndex].sets[index].skills[skillIndex].cost">
+                                                </div>
+                                            </div>
+                                            <div class="column col-4">
+                                                <div class="form-group remove-inline-wrap">
+                                                    <label class="form-label">图片编号</label>
                                                     <div class="remove-inline">
                                                         <a href="javascript:;" class="label label-danger" @click="deleteSkill(typeIndex, index, skillIndex)">删除</a>
                                                     </div>
-                                                    <input class="form-input" type="number" v-model.number="list.content[typeIndex].sets[index].skills[skillIndex].cost">
+                                                    <input class="form-input" type="number" v-model.number="list.content[typeIndex].sets[index].skills[skillIndex].image">
                                                 </div>
                                             </div>
                                             <div class="column col-12">
@@ -187,6 +197,7 @@ export default {
             rawShikigami: {
                 name: '',
                 cv: null,
+                image: null,
                 soul: [
                     [
                         [
@@ -199,6 +210,7 @@ export default {
                     {
                         name: '',
                         cost: 0,
+                        image: null,
                         level: [],
                         description: ''
                     }
